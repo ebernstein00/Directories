@@ -48,10 +48,10 @@ int main(){
   while (di != NULL){
     //fd = open(di, O_RDONLY);
     if (isDirectory(di)){
-      dir = insert_front(di);
+      dir = insert_front(dir, di);
     }
     else{
-      file = insert_front(di);
+      file = insert_front(file, di);
     }
   }
   printf("Directories:\n");
