@@ -49,16 +49,16 @@ int main(){
   while (di != NULL){
     //fd = open(di, O_RDONLY);
     if (isDirectory(di)){
-      dir = insert_front(dir, di);
+      dir = insert_dir(dir, di);
     }
     else{
-      file = insert_front(file, di);
+      file = insert_file(file, di);
     }
   }
   printf("Directories:\n");
-  print_list(dir);
+  print_dirs(dir);
   printf("\nFiles:\n");
-  print_list(file);
+  print_files(file);
   printf("\n");
   return 0;
 }
