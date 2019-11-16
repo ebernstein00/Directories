@@ -21,7 +21,7 @@ void print_dirs(struct dir* node){
 
 struct dir* insert_dir(struct dir* node, char x[250]){
   //struct node front;
-  struct dir* ptr = malloc(sizeof(struct node));//&front;
+  struct dir* ptr = malloc(sizeof(struct dir));//&front;
   //ptr->i = x;
   int m;
   for (m = 0; m < 250; m++){

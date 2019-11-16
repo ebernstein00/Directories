@@ -21,7 +21,7 @@ void print_files(struct file* node){
 
 struct file* insert_file(struct file* node, char x[250]){
   //struct node front;
-  struct file* ptr = malloc(sizeof(struct node));//&front;
+  struct file* ptr = malloc(sizeof(struct file));//&front;
   //ptr->i = x;
   int m;
   for (m = 0; m < 250; m++){
