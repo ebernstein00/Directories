@@ -22,7 +22,11 @@ void print_list(struct node* node){
 struct node* insert_front(struct node* node, char x[250]){
   //struct node front;
   struct node* ptr = malloc(sizeof(struct node));//&front;
-  ptr->i = x;
+  //ptr->i = x;
+  int m;
+  for (m = 0; m < 250; m++){
+    ptr->i[m] = x[m];
+  }
   ptr->next = node;
   return ptr;
 }
