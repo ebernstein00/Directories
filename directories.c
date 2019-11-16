@@ -6,7 +6,8 @@
 #include <string.h>
 #include <dirent.h>
 #include <unistd.h>
-#include "listfuncs.h"
+#include "dirfuncs.h"
+#include "filefuncs.h"
 
 struct dirs{
   char name[250];
