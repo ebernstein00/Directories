@@ -1,5 +1,5 @@
 all: directories.o dirlist.o filelist.o
-	gcc -o program directories.c linkedlist.c
+	gcc -o program directories.c dirlist.c filelist.c
 directories.o: dirfuncs.h filefuncs.h directories.c dirlist.c filelist.c
 	gcc -c -g directories.c
 dirlist.o: dirlist.c
