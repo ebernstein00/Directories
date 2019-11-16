@@ -6,6 +6,17 @@
 #include <string.h>
 #include <dirent.h>
 #include <unistd.h>
+#include "listfuncs.h"
+
+struct dirs{
+  char name[250];
+  struct dirs* next;
+};
+
+struct files{
+  char name[250];
+  struct files* next;
+};
 
 int isDirectory(char filename[250]){
   DIR *tester = opendir(filename);
@@ -21,6 +32,8 @@ int isDirectory(char filename[250]){
 
 int main(){
   //Print list of files in current directory...
+  struct dirs* dir = (NULL, NULL);
+  struct files* file = (NULL, NULL);
   struct dirent *di;
   DIR *dr = opendir(".");
   if (dr == NULL){
@@ -35,5 +48,16 @@ int main(){
   while (di != NULL){
     //fd = open(di, O_RDONLY);
     if (isDirectory(di)){
-      
+      dir = insert_front(di);
+    }
+    else{
+      file = insert_front(di);
+    }
   }
+  printf("Directories:\n");
+  print_list(dir);
+  printf("\nFiles:\n");
+  print_list(file);
+  printf("\n");
+  return 0;
+}
