@@ -3,6 +3,7 @@
 #include <errno.h>
 #include <fcntl.h>
 #include <sys/stat.h>
+#include <sys/types.h>
 #include <string.h>
 #include <dirent.h>
 #include <unistd.h>
@@ -31,6 +32,12 @@ int isDirectory(char filename[250]){
   return -1;
 }
 
+int isRegFile(char path[250]){
+    struct stat path_stat;
+    stat(path, &path_stat);
+    return S_ISREG(path_stat.st_mode);
+}
+
 int main(){
   //Print list of files in current directory...
   struct dirs* dir = (NULL, NULL);
@@ -42,13 +49,11 @@ int main(){
     printf("Could not open directory...\n");
     return 0;
   }
-  char **directories = malloc(16);
-  char **others = malloc(16);
   di = readdir(dr);
   int fd;
   while (di != NULL){
     //fd = open(di, O_RDONLY);
-    if (isDirectory(di)){
+    if (!isRegFile(di)){
       dir = insert_dir(dir, di);
     }
     else{
