@@ -6,7 +6,7 @@ struct dir{
   struct dir* next;
 };
 
-void print_list(struct dir* node){
+void print_dirs(struct dir* node){
   if (node == NULL){
     printf("[  ]\n");
     return;
@@ -19,7 +19,7 @@ void print_list(struct dir* node){
   printf("]\n");
 }
 
-struct dir* insert_front(struct dir* node, char x[250]){
+struct dir* insert_dir(struct dir* node, char x[250]){
   //struct node front;
   struct dir* ptr = malloc(sizeof(struct node));//&front;
   //ptr->i = x;
@@ -31,7 +31,7 @@ struct dir* insert_front(struct dir* node, char x[250]){
   return ptr;
 }
 
-struct dir* free_list(struct dir* node){
+struct dir* free_dirs(struct dir* node){
   struct dir* ph;
   while (ph != NULL){
     ph = node->next;
@@ -44,7 +44,7 @@ struct dir* free_list(struct dir* node){
   return ph;*/
 }
 
-struct dir* remove_node(struct dir* front, char data[250]){
+struct dir* remove_dir(struct dir* front, char data[250]){
   struct dir* leader = front->next;
   struct dir* follower = front;
   while (leader != NULL){

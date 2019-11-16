@@ -6,7 +6,7 @@ struct file{
   struct file* next;
 };
 
-void print_list(struct file* node){
+void print_files(struct file* node){
   if (node == NULL){
     printf("[  ]\n");
     return;
@@ -19,7 +19,7 @@ void print_list(struct file* node){
   printf("]\n");
 }
 
-struct file* insert_front(struct file* node, char x[250]){
+struct file* insert_file(struct file* node, char x[250]){
   //struct node front;
   struct file* ptr = malloc(sizeof(struct node));//&front;
   //ptr->i = x;
@@ -31,7 +31,7 @@ struct file* insert_front(struct file* node, char x[250]){
   return ptr;
 }
 
-struct file* free_list(struct file* node){
+struct file* free_files(struct file* node){
   struct file* ph;
   while (ph != NULL){
     ph = node->next;
@@ -44,7 +44,7 @@ struct file* free_list(struct file* node){
   return ph;*/
 }
 
-struct file* remove_node(struct file* front, char data[250]){
+struct file* remove_file(struct file* front, char data[250]){
   struct file* leader = front->next;
   struct file* follower = front;
   while (leader != NULL){
