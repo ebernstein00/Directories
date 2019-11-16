@@ -1,9 +1,11 @@
-all: directories.o linkedlist.o
+all: directories.o dirlist.o filelist.o
 	gcc -o program directories.c linkedlist.c
-directories.o: listfuncs.h directories.c linkedlist.c
+directories.o: dirfuncs.h filefuncs.h directories.c dirlist.c filelist.c
 	gcc -c -g directories.c
-linkedlist.o: linkedlist.c
-	gcc -c -g linkedlist.c
+dirlist.o: dirlist.c
+	gcc -c -g dirlist.c
+filelist.o: filelist.c
+	gcc -c -g filelist.c
 run:
 	./program
 clean:

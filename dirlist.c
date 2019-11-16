@@ -1,12 +1,12 @@
 #include <stdlib.h>
 #include <stdio.h>
 
-struct node{
+struct dir{
   char i[250];
-  struct node* next;
+  struct dir* next;
 };
 
-void print_list(struct node* node){
+void print_list(struct dir* node){
   if (node == NULL){
     printf("[  ]\n");
     return;
@@ -19,9 +19,9 @@ void print_list(struct node* node){
   printf("]\n");
 }
 
-struct node* insert_front(struct node* node, char x[250]){
+struct dir* insert_front(struct dir* node, char x[250]){
   //struct node front;
-  struct node* ptr = malloc(sizeof(struct node));//&front;
+  struct dir* ptr = malloc(sizeof(struct node));//&front;
   //ptr->i = x;
   int m;
   for (m = 0; m < 250; m++){
@@ -31,8 +31,8 @@ struct node* insert_front(struct node* node, char x[250]){
   return ptr;
 }
 
-struct node* free_list(struct node* node){
-  struct node* ph;
+struct dir* free_list(struct dir* node){
+  struct dir* ph;
   while (ph != NULL){
     ph = node->next;
     free(node);
@@ -44,9 +44,9 @@ struct node* free_list(struct node* node){
   return ph;*/
 }
 
-struct node* remove_node(struct node* front, char data[250]){
-  struct node* leader = front->next;
-  struct node* follower = front;
+struct dir* remove_node(struct dir* front, char data[250]){
+  struct dir* leader = front->next;
+  struct dir* follower = front;
   while (leader != NULL){
     if (leader->i == data){
       follower->next = leader->next;
