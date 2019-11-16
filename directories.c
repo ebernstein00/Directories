@@ -10,6 +10,7 @@
 #include "dirfuncs.h"
 #include "filefuncs.h"
 
+/*
 struct dirs{
   char name[250];
   struct dirs* next;
@@ -19,6 +20,7 @@ struct files{
   char name[250];
   struct files* next;
 };
+*/
 
 int isDirectory(char filename[250]){
   DIR *tester = opendir(filename);
@@ -40,8 +42,10 @@ int isRegFile(char path[250]){
 
 int main(){
   //Print list of files in current directory...
-  struct dirs* dir = (NULL, NULL);
-  struct files* file = (NULL, NULL);
+  //struct dirs* dir = (NULL, NULL);
+  //struct files* file = (NULL, NULL);
+  char dirs[250][250];
+  char files[250][250];
   struct dirent *di;
   DIR *dr = opendir(".");
   if (dr == NULL){
@@ -53,8 +57,8 @@ int main(){
   int fd;
   while (di != NULL){
     //fd = open(di, O_RDONLY);
-    if (!isRegFile(di)){
-      dir = insert_dir(dir, di);
+    if (isDirectory(di)){
+      dirs = insert_dir(dir, di);
     }
     else{
       file = insert_file(file, di);
