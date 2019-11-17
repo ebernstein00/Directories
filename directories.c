@@ -32,8 +32,8 @@ int main(){
   //struct files* file = (NULL, NULL);
   char dirs[250][250];
   char files[250][250];
-  char buff[250];
-  getcwd(buff, 250);
+  char buff[FILENAME_MAX];
+  getcwd(buff, FILENAME_MAX);
   struct dirent *di;
   DIR *dr = opendir(buff);
   if (dr == NULL){
