@@ -10,18 +10,6 @@
 #include "dirfuncs.h"
 #include "filefuncs.h"
 
-/*
-struct dirs{
-  char name[250];
-  struct dirs* next;
-};
-
-struct files{
-  char name[250];
-  struct files* next;
-};
-*/
-
 int isDirectory(char filename[250]){
   DIR *tester = opendir(filename);
   if (tester != NULL){
@@ -53,6 +41,7 @@ int main(){
     printf("Could not open directory...\n");
     return 0;
   }
+  printf("made it here\n");
   di = readdir(dr);
   int fd;
   int diri = 0;
