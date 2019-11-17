@@ -32,10 +32,8 @@ int main(){
   //struct files* file = (NULL, NULL);
   char dirs[250][250];
   char files[250][250];
-  char buff[FILENAME_MAX];
-  getcwd(buff, FILENAME_MAX);
   struct dirent *di;
-  DIR *dr = opendir(buff);
+  DIR *dr = opendir(".");
   if (dr == NULL){
     printf("Error #%d: %s\n", errno, strerror(errno));
     printf("Could not open directory...\n");
