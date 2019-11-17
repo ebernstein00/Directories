@@ -43,7 +43,7 @@ int main(){
       diri++;
     }
     else{
-      strcpy(files[fili][filj], di->d_name);
+      strcpy(files[fili], di->d_name);
       fili++;
     }
   }
