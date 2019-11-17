@@ -35,37 +35,32 @@ int main(){
   }
   int fd;
   int diri = 0;
-  int dirj = 0;
   int fili = 0;
-  int filj = 0;
   while ((di = readdir(dr)) != NULL){
     //printf("%s\n", di->d_name);
     if (isDirectory(di)){
-      strcpy(dirs[diri][dirj], di->d_name);
-      if (dirj < 250) dirj++;
-      if (dirj >= 250) dirj = 0; diri++;
+      strcpy(dirs[diri], di->d_name);
+      diri++;
     }
     else{
       strcpy(files[fili][filj], di->d_name);
-      if (filj < 250) filj++;
-      if (filj >= 250) filj = 0; fili++;
+      fili++;
     }
-    di = readdir(dr);
   }
   closedir(dr);
   printf("Directories:\n");
   int i;
-  int j;
+  //int j;
   for (i = 0; i < 250; i++){
-    for (j = 0; j < 250; j++){
-      printf("%s\n", dirs[i][j]);
-    }
+    //for (j = 0; j < 250; j++){
+    printf("%s\n", dirs[i]);
+    //}
   };
   printf("\nFiles:\n");
   for (i = 0; i < 250; i++){
-    for (j = 0; j < 250; j++){
-      printf("%s\n", files[i][j]);
-    }
+    //for (j = 0; j < 250; j++){
+    printf("%s\n", files[i]);
+    //}
   };
   printf("\n");
   return 0;
