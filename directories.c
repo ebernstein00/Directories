@@ -40,7 +40,7 @@ int main(){
     return 0;
   }
   printf("made it here\n");
-  di = readdir(dr);
+  //di = readdir(dr);
   int fd;
   int diri = 0;
   int dirj = 0;
@@ -48,7 +48,7 @@ int main(){
   int filj = 0;
   printf("here too\n");
   printf("current di: %s\n", di);
-  while (di != NULL){
+  while ((di = readdir(dr)) != NULL){
     //fd = open(di, O_RDONLY);
     if (isDirectory(di)){
       strcpy(dirs[diri][dirj], di);
@@ -62,6 +62,7 @@ int main(){
     }
     di = readdir(dr);
   }
+  closedir(dr);
   printf("Directories:\n");
   int i;
   int j;
