@@ -38,7 +38,7 @@ int main(){
   int fili = 0;
   while ((di = readdir(dr)) != NULL){
     //printf("%s\n", di->d_name);
-    if (isDirectory(di)){
+    if (isDirectory(di->d_name)){
       strcpy(dirs[diri], di->d_name);
       diri++;
     }
