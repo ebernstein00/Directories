@@ -55,19 +55,37 @@ int main(){
   }
   di = readdir(dr);
   int fd;
+  int diri = 0;
+  int dirj = 0;
+  int fili = 0;
+  int filj = 0;
   while (di != NULL){
     //fd = open(di, O_RDONLY);
     if (isDirectory(di)){
-      dirs = insert_dir(dir, di);
+      dirs[diri][dirj] = insert_dir(dir, di);
+      if (dirj < 250) dirj++;
+      if (dirj >= 250) dirj = 0; diri++;
     }
     else{
-      file = insert_file(file, di);
+      files[fili][filj] = insert_file(file, di);
+      if (filj < 250) filj++;
+      if (filj >= 250) filj = 0; fili++;
     }
   }
   printf("Directories:\n");
-  print_dirs(dir);
+  int i;
+  int j;
+  for (i = 0; i < 250; i++){
+    for (j = 0; j < 250; j++){
+      printf("%s\n", dirs[i][j]);
+    }
+  }
   printf("\nFiles:\n");
-  print_files(file);
+  for (i = 0; i < 250; i++){
+    for (j = 0; j < 250; j++){
+      printf("%s\n", files[i][j]);
+    }
+  }
   printf("\n");
   return 0;
 }
