@@ -46,6 +46,7 @@ int main(){
   int dirj = 0;
   int fili = 0;
   int filj = 0;
+  printf("here too\n");
   while (di != NULL){
     //fd = open(di, O_RDONLY);
     if (isDirectory(di)){
