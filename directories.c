@@ -53,7 +53,7 @@ int main(){
   //int j;
   for (i = 0; i < 10; i++){
     //for (j = 0; j < 250; j++){
-    if (dirs[i] == NULL) break;
+    if (dirs[i] == '\0') break;
     printf("%s\n", dirs[i]);
     //}
   };
