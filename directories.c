@@ -51,14 +51,14 @@ int main(){
   printf("Directories:\n");
   int i;
   //int j;
-  for (i = 0; i < 250; i++){
+  for (i = 0; i < 10; i++){
     //for (j = 0; j < 250; j++){
     if (dirs[i] == "\0") break;
     printf("%s\n", dirs[i]);
     //}
   };
   printf("\nFiles:\n");
-  for (i = 0; i < 250; i++){
+  for (i = 0; i < 10; i++){
     //for (j = 0; j < 250; j++){
     if (files[i] == "\0") break;
     printf("%s\n", files[i]);
