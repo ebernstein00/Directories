@@ -32,22 +32,20 @@ int main(){
   //struct files* file = (NULL, NULL);
   char dirs[250][250];
   char files[250][250];
+  char buff[250];
+  getcwd(buff, 250);
   struct dirent *di;
-  DIR *dr = opendir("./");
+  DIR *dr = opendir(buff);
   if (dr == NULL){
     printf("Error #%d: %s\n", errno, strerror(errno));
     printf("Could not open directory...\n");
     return 0;
   }
-  printf("made it here\n");
-  //di = readdir(dr);
   int fd;
   int diri = 0;
   int dirj = 0;
   int fili = 0;
   int filj = 0;
-  printf("here too\n");
-  printf("current di: %s\n", di);
   while ((di = readdir(dr)) != NULL){
     //fd = open(di, O_RDONLY);
     if (isDirectory(di)){
