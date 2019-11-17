@@ -51,12 +51,12 @@ int main(){
   while ((di = readdir(dr)) != NULL){
     //fd = open(di, O_RDONLY);
     if (isDirectory(di)){
-      strcpy(dirs[diri][dirj], di);
+      strcpy(dirs[diri][dirj], di->d_name);
       if (dirj < 250) dirj++;
       if (dirj >= 250) dirj = 0; diri++;
     }
     else{
-      strcpy(files[fili][filj], di);
+      strcpy(files[fili][filj], di->d_name);
       if (filj < 250) filj++;
       if (filj >= 250) filj = 0; fili++;
     }
