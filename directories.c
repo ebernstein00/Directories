@@ -62,12 +62,12 @@ int main(){
   while (di != NULL){
     //fd = open(di, O_RDONLY);
     if (isDirectory(di)){
-      dirs[diri][dirj] = insert_dir(dir, di);
+      strcpy(dirs[diri][dirj], di);
       if (dirj < 250) dirj++;
       if (dirj >= 250) dirj = 0; diri++;
     }
     else{
-      files[fili][filj] = insert_file(file, di);
+      strcpy(files[fili][filj], di);
       if (filj < 250) filj++;
       if (filj >= 250) filj = 0; fili++;
     }
