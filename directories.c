@@ -71,6 +71,7 @@ int main(){
       if (filj < 250) filj++;
       if (filj >= 250) filj = 0; fili++;
     }
+    di = readdir(dr);
   }
   printf("Directories:\n");
   int i;
