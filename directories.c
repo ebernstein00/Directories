@@ -47,6 +47,7 @@ int main(){
   int fili = 0;
   int filj = 0;
   printf("here too\n");
+  printf("current di: %s\n", di);
   while (di != NULL){
     //fd = open(di, O_RDONLY);
     if (isDirectory(di)){
