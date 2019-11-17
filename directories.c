@@ -22,8 +22,6 @@ int isDirectory(char filename[250]){
 
 int main(){
   //Print list of files in current directory...
-  //struct dirs* dir = (NULL, NULL);
-  //struct files* file = (NULL, NULL);
   char dirs[250][250];
   char files[250][250];
   struct dirent *di;
@@ -37,7 +35,6 @@ int main(){
   int diri = 0;
   int fili = 0;
   while ((di = readdir(dr)) != NULL){
-    //printf("%s\n", di->d_name);
     if (isDirectory(di->d_name)){
       strcpy(dirs[diri], di->d_name);
       diri++;
