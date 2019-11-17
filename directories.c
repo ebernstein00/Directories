@@ -7,8 +7,6 @@
 #include <string.h>
 #include <dirent.h>
 #include <unistd.h>
-#include "dirfuncs.h"
-#include "filefuncs.h"
 
 int isDirectory(char filename[250]){
   DIR *tester = opendir(filename);
