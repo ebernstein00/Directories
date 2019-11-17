@@ -33,7 +33,7 @@ int main(){
   char dirs[250][250];
   char files[250][250];
   struct dirent *di;
-  DIR *dr = opendir(".");
+  DIR *dr = opendir("./");
   if (dr == NULL){
     printf("Error #%d: %s\n", errno, strerror(errno));
     printf("Could not open directory...\n");
