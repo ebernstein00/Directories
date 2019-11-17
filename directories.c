@@ -20,12 +20,6 @@ int isDirectory(char filename[250]){
   return -1;
 }
 
-int isRegFile(char path[250]){
-    struct stat path_stat;
-    stat(path, &path_stat);
-    return S_ISREG(path_stat.st_mode);
-}
-
 int main(){
   //Print list of files in current directory...
   //struct dirs* dir = (NULL, NULL);
@@ -45,9 +39,8 @@ int main(){
   int fili = 0;
   int filj = 0;
   while ((di = readdir(dr)) != NULL){
-    printf("%s\n", di->d_name);
-    //fd = open(di, O_RDONLY);
-    /*if (isDirectory(di)){
+    //printf("%s\n", di->d_name);
+    if (isDirectory(di)){
       strcpy(dirs[diri][dirj], di->d_name);
       if (dirj < 250) dirj++;
       if (dirj >= 250) dirj = 0; diri++;
@@ -75,7 +68,5 @@ int main(){
   printf("\nFiles:\n")
   }
   printf("\n");
-  */
-  }
   return 0;
 }
