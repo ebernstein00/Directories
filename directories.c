@@ -11,7 +11,7 @@
 int isDirectory(char filename[250]){
   DIR *tester = opendir(filename);
   if (tester != NULL){
-    close(tester);
+    closedir(tester);
     return 1;
   }
   if (errno == ENOTDIR){
@@ -67,12 +67,12 @@ int main(){
     for (j = 0; j < 250; j++){
       printf("%s\n", dirs[i][j]);
     }
-  }
-  printf("\nFiles:\n");
+  };
   for (i = 0; i < 250; i++){
     for (j = 0; j < 250; j++){
       printf("%s\n", files[i][j]);
     }
+  printf("\nFiles:\n")
   }
   printf("\n");
   */
