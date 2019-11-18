@@ -20,12 +20,17 @@ int isDirectory(char filename[250]){
   return -1;
 }
 
-int main(){
+int main(int argc, char *argv[]){
   //Print list of files in current directory...
   char dirs[250][250];
   char files[250][250];
   struct dirent *di;
-  DIR *dr = opendir(".");
+  if (argc > 1){
+    DIR *dr = opendir("%s", argv[1]);
+  }
+  else{
+    DIR *dr = opendir(".");
+  }
   if (dr == NULL){
     printf("Error #%d: %s\n", errno, strerror(errno));
     printf("Could not open directory...\n");
