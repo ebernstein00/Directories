@@ -26,7 +26,7 @@ int main(int argc, char *argv[]){
   char files[250][250];
   struct dirent *di;
   if (argc > 1){
-    DIR *dr = opendir("%s", argv[1]);
+    DIR *dr = opendir(argv[1]);
   }
   else{
     DIR *dr = opendir(".");
