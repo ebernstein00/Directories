@@ -25,11 +25,12 @@ int main(int argc, char *argv[]){
   char dirs[250][250];
   char files[250][250];
   struct dirent *di;
+  DIR *dr;
   if (argc > 1){
-    DIR *dr = opendir(argv[1]);
+    dr = opendir(argv[1]);
   }
   else{
-    DIR *dr = opendir(".");
+    dr = opendir(".");
   }
   if (dr == NULL){
     printf("Error #%d: %s\n", errno, strerror(errno));
